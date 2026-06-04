@@ -1,0 +1,79 @@
+<footer class="footer-wrap" id="Footer">
+  <div class="footer-grid">
+
+    <!-- Brand -->
+    <div class="footer-brand">
+      <h2 class="footer-name">Youssef Yasser</h2>
+      <p class="footer-bio">
+        Frontend Engineer crafting high-performance web experiences
+        with Angular & springBoot and TypeScript.
+      </p>
+
+      <span class="footer-status">
+        <span class="status-dot"></span>
+        Available for opportunities
+      </span>
+    </div>
+
+    <!-- Navigation -->
+    <div>
+      <p class="footer-col-label">Navigation</p>
+
+      <ul class="footer-nav">
+        @for (link of navLinks; track link) {
+          <li>
+            <a href="#{{link}}">{{ link }}</a>
+          </li>
+        }
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <p class="footer-col-label">Contact</p>
+
+      <ul class="contact-list">
+        <li>
+          <i class="ti ti-mail" aria-hidden="true"></i>
+          {{ contact.email }}
+        </li>
+
+        <li>
+          <i class="ti ti-phone" aria-hidden="true"></i>
+          {{ contact.phone }}
+        </li>
+
+        <li>
+          <i class="ti ti-map-pin" aria-hidden="true"></i>
+          {{ contact.location }}
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <hr class="footer-divider" />
+
+  <div class="footer-bottom">
+
+    <p class="footer-copy">
+      &copy; {{ currentYear }} Mohamed Ahmed Shehata.
+      Built with <span class="heart">&#9829;</span> using Angular & TypeScript.
+    </p>
+
+    <div class="footer-socials">
+      @for (s of socials; track s.label) {
+        <a
+          [href]="s.href"
+          class="social-btn"
+          [attr.aria-label]="s.label"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i [class]="'ti ' + s.icon"></i>
+        </a>
+      }
+    </div>
+
+  </div>
+</footer>

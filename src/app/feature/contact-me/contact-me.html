@@ -1,0 +1,95 @@
+<section class="contact-section" id="Contact">
+  <!-- Left Column -->
+  <div class="contact-left">
+    <h2 class="contact-title">
+      Let's <span class="highlight">Connect</span>
+    </h2>
+
+    <p class="contact-desc">
+      Have an exciting full-stack project in mind, or just want to
+      discuss software engineering opportunities? Drop me a line, I'm
+      always ready to build something remarkable.
+    </p>
+
+    <div class="contact-info-list">
+      <a
+        *ngFor="let item of contactInfo"
+        [href]="item.href"
+        class="contact-info-item"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div class="contact-icon" [ngClass]="item.icon">
+          <svg *ngIf="item.icon === 'email'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="M2 7l10 7 10-7"/>
+          </svg>
+          <svg *ngIf="item.icon === 'phone'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.01 1.18 2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" transform="translate(1 1)"/>
+          </svg>
+          <svg *ngIf="item.icon === 'linkedin'" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
+            <circle cx="4" cy="4" r="2"/>
+          </svg>
+        </div>
+        <div class="contact-info-text">
+          <span class="contact-info-label">{{ item.label }}</span>
+          <span class="contact-info-value">{{ item.value }}</span>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Right Column — Form Card -->
+  <div class="contact-card">
+    <div class="form-row">
+      <div class="field-group">
+        <label for="name">Name</label>
+        <input
+          id="name"
+          type="text"
+          placeholder="John Doe"
+          [(ngModel)]="form.name"
+          name="name"
+          autocomplete="off"
+        />
+      </div>
+      <div class="field-group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="john@example.com"
+          [(ngModel)]="form.email"
+          name="email"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="message">Message</label>
+      <textarea
+        id="message"
+        placeholder="Tell me about your project..."
+        [(ngModel)]="form.message"
+        name="message"
+        rows="5"
+      ></textarea>
+    </div>
+
+    <button
+      class="send-btn"
+      [class.loading]="sending"
+      [class.success]="sent"
+      [disabled]="sending"
+      (click)="sendMessage()"
+    >
+      <span *ngIf="!sending && !sent">Send Message</span>
+      <span *ngIf="sending" class="btn-loader">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+      </span>
+      <span *ngIf="sent">✓ Message Sent!</span>
+    </button>
+  </div>
+</section>

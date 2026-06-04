@@ -12,7 +12,9 @@
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
- 
+ .icon{
+  display: none;
+ }
   .navbar-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 28px;
@@ -57,3 +59,37 @@
     background: rgba(255,255,255,0.08);
     border-color: rgba(255,255,255,0.45);
   }
+@media (max-width: 768px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .icon {
+    display: block;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .navbar-cta {
+    display: none;
+  }
+
+  .navbar-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: #0a0a0b;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .navbar-links.active {
+    display: flex;
+  }
+}

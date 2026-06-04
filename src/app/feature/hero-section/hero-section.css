@@ -128,9 +128,9 @@
 
   .Div-3d-model{
       position: absolute;
-      top: 0;
-      right: -11%;
-      height: 700px;
+      top: -10%;
+      right: -20%;
+      height: 600px;
       width: 1000px;
   }
 
